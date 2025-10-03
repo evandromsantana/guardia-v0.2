@@ -1,5 +1,5 @@
-import { COLORS } from "@/src/constants";
 import { Text as DefaultText, View as DefaultView } from "react-native";
+import { COLORS } from "../../constants";
 
 type ThemeProps = {
   lightColor?: string;

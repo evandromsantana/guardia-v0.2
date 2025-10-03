@@ -1,6 +1,6 @@
-import { COLORS } from "@/src/constants";
 import React from "react";
 import { KeyboardTypeOptions, StyleSheet, Text, TextInput } from "react-native";
+import { COLORS } from "../../../constants";
 
 interface ProfileInputFieldProps {
   label: string;

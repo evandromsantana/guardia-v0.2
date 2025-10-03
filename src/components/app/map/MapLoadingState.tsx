@@ -1,6 +1,6 @@
-import { COLORS } from "@/src/constants";
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import { COLORS } from "../../../constants";
 
 const MapLoadingState: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 // src/app/(auth)/welcome.tsx
 
-import AuthHeader from "@/src/components/app/auth/AuthHeader";
+import AuthHeader from "@/components/app/auth/AuthHeader";
 import WelcomeButtons from "@/src/components/app/auth/WelcomeButtons";
 import { COLORS } from "@/src/constants";
 import React from "react";

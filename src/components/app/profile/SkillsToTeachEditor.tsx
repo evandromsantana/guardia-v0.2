@@ -1,4 +1,3 @@
-import { COLORS } from "@/src/constants";
 import React from "react";
 import {
   StyleSheet,
@@ -7,6 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { COLORS } from "../../../constants";
 
 interface EditableTaughtSkill {
   skillName: string;

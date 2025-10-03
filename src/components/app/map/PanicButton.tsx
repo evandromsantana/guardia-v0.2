@@ -1,7 +1,7 @@
-import { COLORS } from "@/src/constants";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
+import { COLORS } from "../../../constants";
 
 interface PanicButtonProps {
   onLongPress: () => void;

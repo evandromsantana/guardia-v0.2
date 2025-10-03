@@ -1,5 +1,6 @@
-import { COLORS } from "@/src/constants";
-import { Trip } from "@/src/types/trip";
+import { COLORS } from "../../../constants";
+import { Trip } from "../../../types/trip";
+
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 

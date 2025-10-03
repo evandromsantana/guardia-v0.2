@@ -9,15 +9,15 @@ import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useRef, useState } from "react";
 import "react-native-reanimated";
 
-import LockedScreen from "@/src/components/app/auth/LockedScreen";
-import { AuthProvider } from "@/src/contexts/AuthContext";
-import { useColorScheme } from "@/src/hooks/use-color-scheme";
+import LockedScreen from "../components/app/auth/LockedScreen";
+import { AuthProvider } from "../contexts/AuthContext";
+import { useColorScheme } from "../hooks/use-color-scheme";
+import { useAuth } from "../hooks/useAuth";
 import {
   authenticateWithBiometrics,
   isBiometricsEnabled,
   promptToEnableBiometrics,
-} from "@/src/services/biometricService";
-import { useAuth } from "../hooks/useAuth";
+} from "../services/biometricService";
 
 export const unstable_settings = {
   anchor: "(tabs)",

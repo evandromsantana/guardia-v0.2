@@ -1,6 +1,6 @@
-import { COLORS } from "@/src/constants";
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
+import { COLORS } from "../../../constants";
 
 interface ProfileHeaderProps {
   photoUrl: string | undefined;
