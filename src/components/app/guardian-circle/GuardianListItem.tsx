@@ -1,7 +1,7 @@
-import { Button } from "@/src/components/common/Button";
-import { COLORS } from "@/src/constants";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { Button } from "../../../components/common/Button";
+import { COLORS } from "../../../constants";
 
 interface GuardianItem {
   guardianUid: string;

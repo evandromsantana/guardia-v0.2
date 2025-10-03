@@ -1,4 +1,3 @@
-import { COLORS } from "@/src/constants";
 import React from "react";
 import {
   Image,
@@ -8,6 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { COLORS } from "../../../constants";
 import { UserProfile } from "../../../types/user";
 
 interface ClusterBottomSheetProps {

@@ -9,14 +9,14 @@ import {
   View,
 } from "react-native";
 
-import { NavigableInfoBox } from "@/src/components/app/profile/NavigableInfoBox";
+import { NavigableInfoBox } from "../../../components/app/profile/NavigableInfoBox";
 
-import { useAuth } from "../../../hooks/useAuth";
-import ProfileActions from "@/src/components/app/profile/ProfileActions";
-import ProfileHeader from "@/src/components/app/profile/ProfileHeader";
-import { COLORS } from "@/src/constants";
-import { getUserProfile } from "@/src/services/userService";
+import ProfileActions from "../../../components/app/profile/ProfileActions";
+import ProfileHeader from "../../../components/app/profile/ProfileHeader";
 import ProfileInfoBox from "../../../components/app/profile/ProfileInfoBox";
+import { COLORS } from "../../../constants";
+import { useAuth } from "../../../hooks/useAuth";
+import { getUserProfile } from "../../../services/userService";
 
 export default function ProfileScreen() {
   const { user, logout } = useAuth();

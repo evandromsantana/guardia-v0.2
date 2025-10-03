@@ -4,13 +4,13 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Region } from "react-native-maps";
 
-import { Button } from "@/src/components/common/Button";
-import { COLORS } from "@/src/constants";
 import MapComponent from "../../components/app/map/MapComponent";
 import MapLoadingState from "../../components/app/map/MapLoadingState";
 import { PanicButton } from "../../components/app/map/PanicButton";
 import UserInfoCard from "../../components/app/map/UserInfoCard";
+import { Button } from "../../components/common/Button";
 import EmptyState from "../../components/ui/EmptyState";
+import { COLORS } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
 import { useMapActions } from "../../hooks/useMapActions";
 import { useTargetUserLocation } from "../../hooks/useTargetUserLocation";

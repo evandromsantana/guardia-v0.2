@@ -1,9 +1,9 @@
-import { COLORS } from "@/src/constants";
 import { useQuery } from "@tanstack/react-query";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { ActivityIndicator } from "react-native";
 import ChatRoom from "../../components/app/chat/ChatRoom";
+import { COLORS } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
 import { useChatMessages } from "../../hooks/useChatMessages";
 import { useSendMessage } from "../../hooks/useSendMessage";

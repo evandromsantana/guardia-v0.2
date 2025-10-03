@@ -1,6 +1,3 @@
-import { COLORS } from "@/src/constants";
-import { getTripHistory } from "@/src/services/tripService";
-import { Trip } from "@/src/types/trip"; // Import Trip type
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -12,7 +9,10 @@ import {
   View,
 } from "react-native";
 import { TripListItem } from "../components/app/trip/TripListItem";
+import { COLORS } from "../constants";
 import { useAuth } from "../hooks/useAuth";
+import { getTripHistory } from "../services/tripService";
+import { Trip } from "../types/trip"; // Import Trip type
 
 export default function TripHistoryScreen() {
   const { user } = useAuth();

@@ -1,5 +1,3 @@
-import { AlertInfo } from "@/src/components/app/guardian-panel/AlertInfo";
-import { COLORS } from "@/src/constants";
 import { useQuery } from "@tanstack/react-query";
 import { Audio } from "expo-av";
 import { useLocalSearchParams } from "expo-router";
@@ -8,8 +6,10 @@ import React from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import MapView, { Marker, Region } from "react-native-maps";
 import { db } from "../../api/firebase";
+import { AlertInfo } from "../../components/app/guardian-panel/AlertInfo";
+import { COLORS } from "../../constants";
 
-import { AlertActions } from "@/src/components/app/guardian-panel/AlertActions";
+import { AlertActions } from "../../components/app/guardian-panel/AlertActions";
 import { Alert } from "../../types/alert";
 
 async function getAlert(alertId: string): Promise<Alert | null> {

@@ -1,7 +1,7 @@
-import { COLORS } from "@/src/constants";
 import { Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 import React from "react";
+import { COLORS } from "../../constants";
 
 export default function TabLayout() {
   return (

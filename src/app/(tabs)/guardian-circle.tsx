@@ -1,6 +1,3 @@
-import { Button } from "@/src/components/common/Button";
-import { Container } from "@/src/components/layout/Container";
-import { COLORS } from "@/src/constants";
 import * as Contacts from "expo-contacts";
 import React, { useState } from "react";
 import {
@@ -12,6 +9,7 @@ import {
   View,
 } from "react-native";
 import { ZodError } from "zod";
+import { Button } from "../../components/common/Button";
 import { Input } from "../../components/common/Input";
 import {
   useAcceptGuardianRequest,
@@ -21,6 +19,8 @@ import {
   useRejectGuardianRequest,
   useRemoveGuardian,
 } from "../../components/hooks/guardian";
+import { Container } from "../../components/layout/Container";
+import { COLORS } from "../../constants";
 import { useAuth } from "../../hooks/useAuth";
 
 interface GuardianItem {

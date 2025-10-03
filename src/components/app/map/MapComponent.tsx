@@ -3,8 +3,8 @@ import React, { useCallback, useEffect, useRef } from "react";
 import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from "react-native-maps";
 
-import { COLORS } from "@/src/constants";
-import { retroMapStyle } from "@/src/constants/MapStyles";
+import { COLORS } from "../../../constants";
+import { retroMapStyle } from "../../../constants/MapStyles";
 import { UserProfile } from "../../../types/user";
 
 // --- TYPE DEFINITIONS ---
@@ -48,7 +48,6 @@ const MapComponent: React.FC<MapComponentProps> = ({
 }) => {
   const scale = useRef(new Animated.Value(0)).current; // começa invisível
 
-  // 🔥 Animação de pulso + entrada com bounce
   useEffect(() => {
     Animated.sequence([
       Animated.spring(scale, {

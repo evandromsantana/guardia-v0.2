@@ -1,5 +1,3 @@
-import { COLORS } from "@/src/constants";
-import { TaughtSkill, UserProfile } from "@/src/types/user";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
@@ -16,11 +14,13 @@ import ProfileImagePicker from "../../../components/app/profile/ProfileImagePick
 import ProfileInputField from "../../../components/app/profile/ProfileInputField";
 import ProfileSaveButton from "../../../components/app/profile/ProfileSaveButton";
 import SkillsToTeachEditor from "../../../components/app/profile/SkillsToTeachEditor";
+import { COLORS } from "../../../constants";
 import { useAuth } from "../../../hooks/useAuth";
 import {
   getUserProfile,
   updateUserProfile,
 } from "../../../services/userService";
+import { TaughtSkill, UserProfile } from "../../../types/user";
 
 import { z } from "zod";
 

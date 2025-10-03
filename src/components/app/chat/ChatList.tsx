@@ -1,4 +1,3 @@
-import { COLORS } from "@/src/constants";
 import React from "react";
 import {
   FlatList,
@@ -8,6 +7,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { COLORS } from "../../../constants";
 import { ChatWithId } from "../../../types/chat";
 import { UserProfile } from "../../../types/user";
 

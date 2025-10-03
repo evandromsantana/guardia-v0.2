@@ -1,5 +1,3 @@
-import { Alert } from "@/src/types/alert";
-import { UserProfile } from "@/src/types/user";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import {
@@ -12,6 +10,8 @@ import {
 } from "react-native";
 import { COLORS, SPACING } from "../../../constants";
 import { getUserProfile } from "../../../services/userService";
+import { Alert } from "../../../types/alert";
+import { UserProfile } from "../../../types/user";
 import { Button } from "../../common/Button";
 
 interface AlertActionsProps {

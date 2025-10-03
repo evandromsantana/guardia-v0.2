@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { COLORS } from "@/src/constants";
+import { COLORS } from "../../../constants";
 import { Button } from "../../common/Button";
 
 interface AlertInfoProps {
