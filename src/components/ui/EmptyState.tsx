@@ -1,6 +1,6 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { COLORS } from "@/constants";
+import { StyleSheet, Text, View } from "react-native";
 
 interface EmptyStateProps {
   message: string;
@@ -11,9 +11,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({ message, subMessage }) => {
   return (
     <View style={styles.emptyStateContainer}>
       <Text style={styles.emptyStateText}>{message}</Text>
-      {subMessage && (
-        <Text style={styles.emptyStateSubText}>{subMessage}</Text>
-      )}
+      {subMessage && <Text style={styles.emptyStateSubText}>{subMessage}</Text>}
     </View>
   );
 };

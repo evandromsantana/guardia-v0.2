@@ -1,3 +1,4 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
 import {
   FlatList,
@@ -7,7 +8,6 @@ import {
   Text,
   View,
 } from "react-native";
-import { COLORS } from "@/constants";
 import { ChatWithId } from "../../../types/chat";
 import { UserProfile } from "../../../types/user";
 
@@ -75,9 +75,7 @@ const ChatList: React.FC<ChatListProps> = ({
           />
         );
       }}
-      ListEmptyComponent={
-        <Text style={styles.emptyText}>{emptyMessage}</Text>
-      }
+      ListEmptyComponent={<Text style={styles.emptyText}>{emptyMessage}</Text>}
       onRefresh={onRefresh}
       refreshing={refreshing}
     />

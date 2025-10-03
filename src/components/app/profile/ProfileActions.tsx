@@ -1,7 +1,7 @@
-import React from "react";
+import { COLORS } from "@/src/constants";
 import { Link } from "expo-router";
+import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
-import { COLORS } from "@/constants";
 
 interface ProfileActionsProps {
   onLogout: () => void;

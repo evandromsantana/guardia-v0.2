@@ -1,7 +1,7 @@
-import { COLORS } from "@/constants";
-import React from "react";
-import { StyleSheet, View, ActivityIndicator, Alert } from "react-native";
+import { COLORS } from "@/src/constants";
 import { GoogleSigninButton } from "@react-native-google-signin/google-signin";
+import React from "react";
+import { ActivityIndicator, Alert, StyleSheet, View } from "react-native";
 import { useAuth } from "../../../hooks/useAuth";
 
 const WelcomeButtons: React.FC = () => {

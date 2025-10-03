@@ -1,6 +1,6 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
-import { COLORS } from "@/constants"; // Assumindo que COLORS está disponível via alias
+import { Image, StyleSheet, Text, View } from "react-native";
 
 interface ProfileHeaderProps {
   photoUrl: string | undefined;
@@ -17,9 +17,7 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({
     <View style={styles.profileavatar}>
       <Image
         source={
-          photoUrl
-            ? { uri: photoUrl }
-            : require("@/assets/default-avatar.png") // Fallback image
+          photoUrl ? { uri: photoUrl } : require("@/assets/default-avatar.png") // Fallback image
         }
         style={styles.avatar}
       />

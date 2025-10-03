@@ -1,7 +1,7 @@
+import { COLORS } from "@/src/constants";
+import { Trip } from "@/src/types/trip";
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { Trip } from "@/types/trip";
-import { COLORS } from "@/constants";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 interface TripListItemProps {
   trip: Trip;

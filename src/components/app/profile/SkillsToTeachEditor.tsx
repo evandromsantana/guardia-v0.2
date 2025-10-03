@@ -1,6 +1,12 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-import { COLORS } from "@/constants";
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 interface EditableTaughtSkill {
   skillName: string;
@@ -39,9 +45,7 @@ const SkillsToTeachEditor: React.FC<SkillsToTeachEditorProps> = ({
             style={[styles.input, styles.rateInput]}
             placeholder="1.0"
             value={item.multiplier} // Value is now a string
-            onChangeText={(text) =>
-              onSkillChange(index, "multiplier", text)
-            }
+            onChangeText={(text) => onSkillChange(index, "multiplier", text)}
             keyboardType="numeric"
           />
           <TouchableOpacity

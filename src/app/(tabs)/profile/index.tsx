@@ -9,13 +9,13 @@ import {
   View,
 } from "react-native";
 
-import { NavigableInfoBox } from "../../../components/app/profile/NavigableInfoBox";
+import { NavigableInfoBox } from "@/src/components/app/profile/NavigableInfoBox";
 
-import { getUserProfile } from "../../../services/userService";
-import { COLORS } from "@/constants";
-import { useAuth } from "@/hooks/useAuth";
-import ProfileActions from "../../../components/app/profile/ProfileActions";
-import ProfileHeader from "../../../components/app/profile/ProfileHeader";
+import { useAuth } from "../../../hooks/useAuth";
+import ProfileActions from "@/src/components/app/profile/ProfileActions";
+import ProfileHeader from "@/src/components/app/profile/ProfileHeader";
+import { COLORS } from "@/src/constants";
+import { getUserProfile } from "@/src/services/userService";
 import ProfileInfoBox from "../../../components/app/profile/ProfileInfoBox";
 
 export default function ProfileScreen() {

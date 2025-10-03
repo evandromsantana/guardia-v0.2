@@ -1,11 +1,11 @@
+import { Audio } from "expo-av";
 import { getFunctions, httpsCallable } from "firebase/functions";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { z } from "zod";
-import { Audio } from "expo-av";
-import { storage, db } from "../api/firebase";
-import { Alert } from "../types/alert";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db, storage } from "../api/firebase";
+// import { Alert } from "../types/alert";
 import * as Linking from "expo-linking";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const triggerPanicAlertSchema = z.object({
   userId: z.string(),

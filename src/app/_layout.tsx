@@ -1,23 +1,26 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack, Slot, useRouter, useSegments, SplashScreen } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-import React, { useEffect, useRef, useState } from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { AuthProvider } from "../src/contexts/AuthContext"; // Ajustado o caminho
-import { useAuth } from "../hooks/useAuth"; // Ajustado o caminho
 import {
-  promptToEnableBiometrics,
-  isBiometricsEnabled,
-  authenticateWithBiometrics,
-} from "../src/services/biometricService"; // Ajustado o caminho
-import LockedScreen from "../src/components/app/auth/LockedScreen"; // Ajustado o caminho
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider,
+} from "@react-navigation/native";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Slot, SplashScreen, Stack, useRouter, useSegments } from "expo-router";
+import { StatusBar } from "expo-status-bar";
+import React, { useEffect, useRef, useState } from "react";
+import "react-native-reanimated";
 
+import LockedScreen from "@/src/components/app/auth/LockedScreen";
+import { AuthProvider } from "@/src/contexts/AuthContext";
+import { useColorScheme } from "@/src/hooks/use-color-scheme";
+import {
+  authenticateWithBiometrics,
+  isBiometricsEnabled,
+  promptToEnableBiometrics,
+} from "@/src/services/biometricService";
+import { useAuth } from "../hooks/useAuth";
 
 export const unstable_settings = {
-  anchor: '(tabs)',
+  anchor: "(tabs)",
 };
 
 // Create a client
@@ -84,17 +87,20 @@ const InitialLayout = () => {
   return <Slot />;
 };
 
-
 export default function RootLayout() {
   const colorScheme = useColorScheme();
 
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+        <ThemeProvider
+          value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+            <Stack.Screen
+              name="modal"
+              options={{ presentation: "modal", title: "Modal" }}
+            />
             {/* Render InitialLayout here to handle auth and routing */}
             <InitialLayout />
           </Stack>

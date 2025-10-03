@@ -1,18 +1,29 @@
-import React from "react";
-import { View, StyleSheet, Linking, Alert as ReactNativeAlert, ActivityIndicator, Text } from "react-native";
-import { Button } from "../../common/Button";
-import { SPACING, COLORS } from "../../../constants";
-import { Alert } from "@/types/alert";
+import { Alert } from "@/src/types/alert";
+import { UserProfile } from "@/src/types/user";
 import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import {
+  ActivityIndicator,
+  Linking,
+  Alert as ReactNativeAlert,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { COLORS, SPACING } from "../../../constants";
 import { getUserProfile } from "../../../services/userService";
-import { UserProfile } from "@/types/user";
+import { Button } from "../../common/Button";
 
 interface AlertActionsProps {
   alert: Alert;
 }
 
 export const AlertActions: React.FC<AlertActionsProps> = ({ alert }) => {
-  const { data: userProfile, isLoading, isError } = useQuery<UserProfile | null>({
+  const {
+    data: userProfile,
+    isLoading,
+    isError,
+  } = useQuery<UserProfile | null>({
     queryKey: ["userProfile", alert.userId],
     queryFn: () => getUserProfile(alert.userId),
   });
@@ -23,22 +34,34 @@ export const AlertActions: React.FC<AlertActionsProps> = ({ alert }) => {
         ReactNativeAlert.alert("Erro", "Não foi possível realizar a chamada.");
       });
     } else {
-      ReactNativeAlert.alert("Erro", "Número de telefone do usuário não disponível.");
+      ReactNativeAlert.alert(
+        "Erro",
+        "Número de telefone do usuário não disponível."
+      );
     }
   };
 
   const handleCallEmergency = () => {
     Linking.openURL(`tel:190`).catch(() => {
-      ReactNativeAlert.alert("Erro", "Não foi possível realizar a chamada de emergência.");
+      ReactNativeAlert.alert(
+        "Erro",
+        "Não foi possível realizar a chamada de emergência."
+      );
     });
   };
 
   const handleGetRoute = () => {
-    if (alert.lastKnownLocation?.latitude && alert.lastKnownLocation?.longitude) {
+    if (
+      alert.lastKnownLocation?.latitude &&
+      alert.lastKnownLocation?.longitude
+    ) {
       const { latitude, longitude } = alert.lastKnownLocation;
       const url = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
       Linking.openURL(url).catch(() => {
-        ReactNativeAlert.alert("Erro", "Não foi possível abrir o aplicativo de mapas.");
+        ReactNativeAlert.alert(
+          "Erro",
+          "Não foi possível abrir o aplicativo de mapas."
+        );
       });
     } else {
       ReactNativeAlert.alert("Erro", "Localização do usuário não disponível.");
@@ -50,13 +73,25 @@ export const AlertActions: React.FC<AlertActionsProps> = ({ alert }) => {
   }
 
   if (isError || !userProfile) {
-    return <Text style={{ color: COLORS.danger, textAlign: "center" }}>Não foi possível carregar o perfil do usuário.</Text>;
+    return (
+      <Text style={{ color: COLORS.danger, textAlign: "center" }}>
+        Não foi possível carregar o perfil do usuário.
+      </Text>
+    );
   }
 
   return (
     <View style={styles.container}>
-      <Button title="Ligar para a usuária" onPress={handleCallUser} variant="action" />
-      <Button title="Ligar para 190" onPress={handleCallEmergency} variant="alert" />
+      <Button
+        title="Ligar para a usuária"
+        onPress={handleCallUser}
+        variant="action"
+      />
+      <Button
+        title="Ligar para 190"
+        onPress={handleCallEmergency}
+        variant="alert"
+      />
       <Button title="Obter Rota" onPress={handleGetRoute} variant="primary" />
     </View>
   );

@@ -1,8 +1,7 @@
-
-import { COLORS, SPACING } from "@/constants";
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { COLORS, SPACING } from "@/src/constants";
 import { Ionicons } from "@expo/vector-icons";
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface LockedScreenProps {
   onUnlock: () => void;

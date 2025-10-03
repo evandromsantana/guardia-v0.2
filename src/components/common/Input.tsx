@@ -1,4 +1,3 @@
-import { COLORS } from "@/constants";
 import {
   StyleSheet,
   Text,
@@ -6,6 +5,7 @@ import {
   TextInputProps,
   View,
 } from "react-native";
+import { COLORS } from "../../constants";
 // import { theme } from '@/constants/theme'
 
 interface InputProps extends TextInputProps {

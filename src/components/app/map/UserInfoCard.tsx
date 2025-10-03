@@ -1,14 +1,8 @@
-import { COLORS } from "@/constants";
-import { UserProfile } from "@/types/user";
+import { COLORS } from "@/src/constants";
+import { UserProfile } from "@/src/types/user";
 import { Feather } from "@expo/vector-icons";
 import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface UserInfoCardProps {
   user: UserProfile;

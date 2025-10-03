@@ -1,7 +1,8 @@
-import { useEffect } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
-import { db } from "../src/api/firebase";
+import { useEffect } from "react";
+
 import { Region } from "react-native-maps";
+import { db } from "../api/firebase";
 
 export const useTripLocationTracking = (
   tripId: string | undefined,

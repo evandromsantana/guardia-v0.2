@@ -4,31 +4,35 @@ import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Region } from "react-native-maps";
 
-import { COLORS } from "@/constants";
+import { Button } from "@/src/components/common/Button";
+import { COLORS } from "@/src/constants";
 import MapComponent from "../../components/app/map/MapComponent";
 import MapLoadingState from "../../components/app/map/MapLoadingState";
+import { PanicButton } from "../../components/app/map/PanicButton";
 import UserInfoCard from "../../components/app/map/UserInfoCard";
 import EmptyState from "../../components/ui/EmptyState";
-import { Button } from "@/components/common/Button";
 import { useAuth } from "../../hooks/useAuth";
+import { useMapActions } from "../../hooks/useMapActions";
+import { useTargetUserLocation } from "../../hooks/useTargetUserLocation";
+import { useTripLocationTracking } from "../../hooks/useTripLocationTracking";
 import { getUserProfile } from "../../services/userService";
 import { UserProfile } from "../../types/user";
-import { useTripLocationTracking } from "../../hooks/useTripLocationTracking";
-import { useTargetUserLocation } from "../../hooks/useTargetUserLocation";
-import { useMapActions } from "../../hooks/useMapActions";
-import { PanicButton } from "../../components/app/map/PanicButton";
 
 export default function MapScreen() {
   const { user } = useAuth(); // Renamed to 'user' to avoid conflict
-  const { userId: targetUserId, tripId } = useLocalSearchParams<{ userId: string, tripId: string }>();
+  const { userId: targetUserId, tripId } = useLocalSearchParams<{
+    userId: string;
+    tripId: string;
+  }>();
   const [region, setRegion] = useState<Region | null>(null);
   const [selectedUser, setSelectedUser] = useState<UserProfile | null>(null);
 
-  const { data: currentUserProfile, isLoading: isCurrentUserProfileLoading } = useQuery<UserProfile | null>({
-    queryKey: ["userProfile", user?.uid],
-    queryFn: () => getUserProfile(user?.uid as string),
-    enabled: !!user?.uid,
-  });
+  const { data: currentUserProfile, isLoading: isCurrentUserProfileLoading } =
+    useQuery<UserProfile | null>({
+      queryKey: ["userProfile", user?.uid],
+      queryFn: () => getUserProfile(user?.uid as string),
+      enabled: !!user?.uid,
+    });
 
   const { data: targetUser, isLoading: isUserLoading } = useQuery<
     UserProfile | null,

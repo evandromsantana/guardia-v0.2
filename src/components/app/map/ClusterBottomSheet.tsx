@@ -1,4 +1,4 @@
-import { COLORS } from "@/constants";
+import { COLORS } from "@/src/constants";
 import React from "react";
 import {
   Image,

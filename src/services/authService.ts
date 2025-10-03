@@ -1,20 +1,20 @@
 
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import { useMutation } from "@tanstack/react-query";
 import {
   getAdditionalUserInfo,
   GoogleAuthProvider,
   signInWithCredential,
   signOut,
 } from "firebase/auth";
-import { useMutation } from "@tanstack/react-query";
-import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
-import * as biometricService from "./biometricService";
 import { auth } from "../api/firebase";
-import *s userService from "./userService";
+import * as biometricService from "./biometricService";
+import * as userService from "./userService";
 
 // Configure Google Sign-In
 GoogleSignin.configure({
-  webClientId: "334594603691-uap31oisn7bqp89ck4n0kbbgh3j2796d.apps.googleusercontent.com",
+  webClientId: "285764900701-0ms0urjjbt46nupka8ba1jj0n13skjto.apps.googleusercontent.com",
 });
 
 // API Functions

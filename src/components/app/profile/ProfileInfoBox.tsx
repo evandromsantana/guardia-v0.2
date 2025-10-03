@@ -1,6 +1,6 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { COLORS } from "@/constants";
+import { StyleSheet, Text, View } from "react-native";
 
 interface ProfileInfoBoxProps {
   title: string;

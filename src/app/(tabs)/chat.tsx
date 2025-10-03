@@ -1,29 +1,26 @@
-import { COLORS } from "@/constants";
-import { useAuth } from "@/hooks/useAuth";
-import { ChatWithId } from "@/types/chat";
-import { UserProfile } from "@/types/user";
+import ChatList from "@/src/components/app/chat/ChatList";
+import { COLORS } from "@/src/constants";
+import { ChatWithId } from "@/src/types/chat";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import { getChatsForUser } from "../../services/chatService";
-import { fetchUserProfiles, getUserProfile } from "../../services/userService";
-import ChatList from "../../components/app/chat/ChatList";
 import LoadingIndicator from "../../components/ui/LoadingIndicator";
-
-
+import { useAuth } from "../../hooks/useAuth";
+import { getChatsForUser } from "../../services/chatService";
+import { fetchUserProfiles } from "../../services/userService";
 
 export default function ChatScreen() {
   const { user } = useAuth();
   const router = useRouter();
 
   // 1. Query to fetch chats
-  const { 
-    data: chats = [], 
+  const {
+    data: chats = [],
     isLoading: chatsLoading,
     refetch: refetchChats,
     isRefetching,
-  } = useQuery<ChatWithId[], Error, ChatWithId[]>({ 
+  } = useQuery<ChatWithId[], Error, ChatWithId[]>({
     queryKey: ["chats", user?.uid],
     queryFn: () => getChatsForUser(user!.uid),
     enabled: !!user,

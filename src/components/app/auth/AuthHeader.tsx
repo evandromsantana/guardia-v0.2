@@ -1,6 +1,6 @@
+import LogoGuard from "@/src/components/Logo";
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import LogoGuard from "../Logo";
 
 interface AuthHeaderProps {
   title: string;

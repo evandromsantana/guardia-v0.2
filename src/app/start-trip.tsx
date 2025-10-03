@@ -1,20 +1,14 @@
-import { Button } from "@/components/common/Button";
-import { Input } from "@/components/common/Input";
-import { Container } from "@/components/layout/Container";
-import { COLORS } from "@/constants";
-import { useAuth } from "@/hooks/useAuth";
-import { useGuardians } from "@/components/hooks/guardian";
-import { startSafeTrip } from "@/services/tripService";
+import { Button } from "@/src/components/common/Button";
+import { Input } from "@/src/components/common/Input";
+import { useGuardians } from "@/src/components/hooks/guardian";
+import { Container } from "@/src/components/layout/Container";
+import { COLORS } from "@/src/constants";
+import { startSafeTrip } from "@/src/services/tripService";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import {
-  ActivityIndicator,
-  Alert,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ActivityIndicator, Alert, StyleSheet, Text } from "react-native";
 import { GuardianSelectionList } from "../components/app/trip/GuardianSelectionList";
+import { useAuth } from "../hooks/useAuth";
 
 export default function StartTripScreen() {
   const { user } = useAuth();
@@ -53,12 +47,21 @@ export default function StartTripScreen() {
       });
       router.push(`/map?userId=${user.uid}&tripId=${tripId}`);
     } catch (error: any) {
-      Alert.alert("Erro", error.message || "Não foi possível iniciar a viagem.");
+      Alert.alert(
+        "Erro",
+        error.message || "Não foi possível iniciar a viagem."
+      );
     }
   };
 
   if (isLoadingGuardians) {
-    return <ActivityIndicator style={styles.centered} size="large" color={COLORS.primary} />;
+    return (
+      <ActivityIndicator
+        style={styles.centered}
+        size="large"
+        color={COLORS.primary}
+      />
+    );
   }
 
   return (

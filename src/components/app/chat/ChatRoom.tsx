@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
 
 interface ChatRoomProps {

@@ -1,7 +1,7 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { FlatList, Text, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { GuardianSelectionItem } from "./GuardianSelectionItem";
-import { COLORS } from "@/constants";
 
 interface Guardian {
   guardianUid: string;

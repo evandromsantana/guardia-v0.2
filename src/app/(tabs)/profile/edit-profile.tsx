@@ -1,5 +1,5 @@
-import { COLORS } from "@/constants";
-import { TaughtSkill, UserProfile } from "@/types/user";
+import { COLORS } from "@/src/constants";
+import { TaughtSkill, UserProfile } from "@/src/types/user";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
@@ -12,18 +12,24 @@ import {
   View,
 } from "react-native";
 import { uploadImage } from "../../../api/cloudinary";
-import { getUserProfile, updateUserProfile } from "../../../services/userService";
 import ProfileImagePicker from "../../../components/app/profile/ProfileImagePicker";
 import ProfileInputField from "../../../components/app/profile/ProfileInputField";
 import ProfileSaveButton from "../../../components/app/profile/ProfileSaveButton";
 import SkillsToTeachEditor from "../../../components/app/profile/SkillsToTeachEditor";
 import { useAuth } from "../../../hooks/useAuth";
+import {
+  getUserProfile,
+  updateUserProfile,
+} from "../../../services/userService";
 
 import { z } from "zod";
 
 // Zod schema for profile update validation
 const taughtSkillSchema = z.object({
-  skillName: z.string().trim().min(1, "O nome da habilidade não pode estar vazio."),
+  skillName: z
+    .string()
+    .trim()
+    .min(1, "O nome da habilidade não pode estar vazio."),
   multiplier: z.string().refine((val) => {
     const num = parseFloat(val);
     return !isNaN(num) && num > 0;
@@ -68,10 +74,12 @@ const EditProfileScreen = () => {
       setDisplayName(profileData.displayName || "");
       setBio(profileData.bio || "");
       setSkillsToTeach(
-        (profileData.skillsToTeach || []).filter(skill => !!skill.skillName).map((skill) => ({
-          skillName: skill.skillName!,
-          multiplier: String(skill.multiplier),
-        }))
+        (profileData.skillsToTeach || [])
+          .filter((skill) => !!skill.skillName)
+          .map((skill) => ({
+            skillName: skill.skillName!,
+            multiplier: String(skill.multiplier),
+          }))
       );
       setSkillsToLearn(profileData.skillsToLearn?.join(", ") || "");
       setImageUri(profileData.photoUrl || null);
@@ -97,7 +105,9 @@ const EditProfileScreen = () => {
         throw new Error("Usuário não autenticado.");
       }
 
-      const skillsToSave: TaughtSkill[] = (validationResult.data.skillsToTeach || []).map(skill => ({
+      const skillsToSave: TaughtSkill[] = (
+        validationResult.data.skillsToTeach || []
+      ).map((skill) => ({
         skillName: skill.skillName,
         multiplier: parseFloat(skill.multiplier),
       }));
@@ -111,7 +121,10 @@ const EditProfileScreen = () => {
         displayName: validationResult.data.displayName,
         bio: validationResult.data.bio,
         skillsToTeach: skillsToSave,
-        skillsToLearn: (validationResult.data.skillsToLearn || "").split(",").map((s) => s.trim()).filter(Boolean),
+        skillsToLearn: (validationResult.data.skillsToLearn || "")
+          .split(",")
+          .map((s) => s.trim())
+          .filter(Boolean),
         photoUrl,
       };
 
@@ -124,14 +137,23 @@ const EditProfileScreen = () => {
     },
     onError: (error) => {
       console.error("Erro ao atualizar o perfil:", error);
-      Alert.alert("Erro", error.message || "Não foi possível atualizar o seu perfil.");
+      Alert.alert(
+        "Erro",
+        error.message || "Não foi possível atualizar o seu perfil."
+      );
     },
   });
 
   // --- Form handlers ---
-  const handleAddSkill = () => setSkillsToTeach([...skillsToTeach, { skillName: "", multiplier: "1.0" }]);
-  const handleRemoveSkill = (index: number) => setSkillsToTeach(skillsToTeach.filter((_, i) => i !== index));
-  const handleSkillChange = (index: number, field: "skillName" | "multiplier", value: string) => {
+  const handleAddSkill = () =>
+    setSkillsToTeach([...skillsToTeach, { skillName: "", multiplier: "1.0" }]);
+  const handleRemoveSkill = (index: number) =>
+    setSkillsToTeach(skillsToTeach.filter((_, i) => i !== index));
+  const handleSkillChange = (
+    index: number,
+    field: "skillName" | "multiplier",
+    value: string
+  ) => {
     const updatedSkills = [...skillsToTeach];
     updatedSkills[index][field] = value;
     setSkillsToTeach(updatedSkills);
@@ -155,10 +177,22 @@ const EditProfileScreen = () => {
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 50 }}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{ paddingBottom: 50 }}>
       <ProfileImagePicker imageUri={imageUri} onPickImage={handlePickImage} />
-      <ProfileInputField label="Nome" value={displayName} onChangeText={setDisplayName} />
-      <ProfileInputField label="Sobre mim" value={bio} onChangeText={setBio} multiline textArea />
+      <ProfileInputField
+        label="Nome"
+        value={displayName}
+        onChangeText={setDisplayName}
+      />
+      <ProfileInputField
+        label="Sobre mim"
+        value={bio}
+        onChangeText={setBio}
+        multiline
+        textArea
+      />
       <SkillsToTeachEditor
         skillsToTeach={skillsToTeach}
         onAddSkill={handleAddSkill}
@@ -178,7 +212,11 @@ const EditProfileScreen = () => {
 
 const styles = StyleSheet.create({
   centered: { flex: 1, justifyContent: "center", alignItems: "center" },
-  container: { flex: 1, padding: 20, backgroundColor: COLORS.background || "#f5f5f5" },
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: COLORS.background || "#f5f5f5",
+  },
 });
 
 export default EditProfileScreen;

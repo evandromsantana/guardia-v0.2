@@ -1,28 +1,27 @@
-import { ZodError } from "zod";
+import { Button } from "@/src/components/common/Button";
+import { Container } from "@/src/components/layout/Container";
+import { COLORS } from "@/src/constants";
 import * as Contacts from "expo-contacts";
-import { Button } from "@/components/common/Button";
-import { Container } from "@/components/layout/Container";
-import { COLORS } from "@/constants";
-import { useAuth } from "@/hooks/useAuth";
 import React, { useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   FlatList,
   StyleSheet,
   Text,
   View,
-  Alert,
 } from "react-native";
+import { ZodError } from "zod";
+import { Input } from "../../components/common/Input";
 import {
   useAcceptGuardianRequest,
   useGuardians,
+  useInviteGuardian,
   usePendingGuardianRequests,
   useRejectGuardianRequest,
   useRemoveGuardian,
-  useInviteGuardian, // Added this import
 } from "../../components/hooks/guardian";
-import { GuardianListItem } from "../../components/app/guardian-circle/GuardianListItem";
-import { Input } from "../../components/common/Input";
+import { useAuth } from "../../hooks/useAuth";
 
 interface GuardianItem {
   guardianUid: string;
@@ -229,7 +228,7 @@ export default function GuardianCircleScreen() {
         <Text style={styles.sectionTitle}>Convidar Guardiã</Text>
         <Input
           label="Telefone da Guardiã"
-          placeholder='(xx) xxxxx-xxxx'
+          placeholder="(xx) xxxxx-xxxx"
           value={inviteePhoneNumber}
           onChangeText={setInviteePhoneNumber}
           keyboardType="phone-pad"
@@ -244,7 +243,9 @@ export default function GuardianCircleScreen() {
           />
           <Button
             title={
-              inviteGuardianMutation.isPending ? "Enviando..." : "Enviar Convite"
+              inviteGuardianMutation.isPending
+                ? "Enviando..."
+                : "Enviar Convite"
             }
             onPress={handleInviteGuardian}
             variant="primary"

@@ -1,6 +1,6 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { COLORS } from "@/constants";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 interface GuardianSelectionItemProps {
   guardian: {
@@ -19,13 +19,11 @@ export const GuardianSelectionItem: React.FC<GuardianSelectionItemProps> = ({
 }) => {
   return (
     <TouchableOpacity
-      style={[
-        styles.guardianItem,
-        isSelected && styles.selectedGuardian,
-      ]}
-      onPress={() => onToggle(guardian.guardianUid)}
-    >
-      <Text style={styles.guardianName}>{guardian.fullName || guardian.email}</Text>
+      style={[styles.guardianItem, isSelected && styles.selectedGuardian]}
+      onPress={() => onToggle(guardian.guardianUid)}>
+      <Text style={styles.guardianName}>
+        {guardian.fullName || guardian.email}
+      </Text>
     </TouchableOpacity>
   );
 };

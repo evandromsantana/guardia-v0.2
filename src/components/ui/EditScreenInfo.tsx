@@ -1,36 +1,33 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-import { ExternalLink } from "./ExternalLink";
+import { ExternalLink } from "../external-link";
 import { MonoText } from "./StyledText";
-import { COLORS } from "@/constants/Colors";
 
 export default function EditScreenInfo({ path }: { path: string }) {
   return (
     <View>
       <View style={styles.getStartedContainer}>
-        <Text style={styles.getStartedText}>Open up the code for this screen:</Text>
+        <Text style={styles.getStartedText}>Abra o código para esta tela:</Text>
 
         <View
-          style={[
-            styles.codeHighlightContainer,
-            styles.homeScreenFilename,
-          ]}>
+          style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
           <MonoText>{path}</MonoText>
         </View>
 
         <Text style={styles.getStartedText}>
-          Change any of the text in the editor and save it to reload your app.
+          Altere qualquer texto no editor e salve-o para recarregar seu
+          aplicativo.
         </Text>
       </View>
 
       <View style={styles.helpContainer}>
         <ExternalLink
           style={styles.helpLink}
-          href="https://docs.expo.io/get-started/create-a-new-app/#tab-and-stack-navigator"
-        >
+          href="https://docs.expo.io/get-started/create-a-new-app/#tab-and-stack-navigator">
           <Text style={styles.helpLinkText}>
-            Tap here if your app doesn't automatically update after making changes
+            Toque aqui se o seu aplicativo não atualizar automaticamente após
+            fazer alterações
           </Text>
         </ExternalLink>
       </View>

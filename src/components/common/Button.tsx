@@ -1,4 +1,3 @@
-import { COLORS } from "@/constants";
 import {
   Pressable,
   StyleSheet,
@@ -6,6 +5,7 @@ import {
   TextStyle,
   ViewStyle,
 } from "react-native";
+import { COLORS } from "../../constants";
 // import { theme } from '@/constants/theme'
 
 type ButtonVariant = "primary" | "action" | "alert";

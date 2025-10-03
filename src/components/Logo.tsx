@@ -69,7 +69,7 @@ export default function LogoGuardia() {
       -1,
       true
     );
-  }, []);
+  });
 
   // Animação das asas mais orgânica
   const leftWingProps = useAnimatedProps(() => {

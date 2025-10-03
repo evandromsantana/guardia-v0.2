@@ -1,6 +1,6 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import { COLORS } from "@/constants";
+import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 interface ProfileImagePickerProps {
   imageUri: string | null;

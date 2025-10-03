@@ -1,6 +1,6 @@
+import { COLORS } from "@/src/constants";
 import React from "react";
-import { Text, TouchableOpacity, StyleSheet } from "react-native";
-import { COLORS } from "@/constants";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
 interface ProfileSaveButtonProps {
   isSubmitting: boolean;

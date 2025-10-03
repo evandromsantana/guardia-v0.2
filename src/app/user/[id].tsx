@@ -1,20 +1,20 @@
-import { COLORS } from "@/constants";
-import { UserProfile } from "@/types/user";
+import { COLORS } from "@/src/constants";
+import { UserProfile } from "@/src/types/user";
 import { useQuery } from "@tanstack/react-query";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import { getUserProfile } from "../../services/userService";
 import UserDetailDisplay from "../../components/app/profile/UserDetailDisplay";
+import { getUserProfile } from "../../services/userService";
 
 export default function UserDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
 
-  const { 
-    data: userProfile, 
-    isLoading, 
-    isError 
-  } = useQuery<UserProfile | null, Error>({ 
+  const {
+    data: userProfile,
+    isLoading,
+    isError,
+  } = useQuery<UserProfile | null, Error>({
     queryKey: ["userProfile", id],
     queryFn: () => getUserProfile(id!),
     enabled: !!id,

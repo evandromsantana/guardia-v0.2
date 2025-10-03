@@ -6,7 +6,7 @@ import {
   inviteGuardian, // Changed from sendGuardianInvitation
   rejectGuardianRequest,
   removeGuardian,
-} from "../src/services/guardiansService";
+} from "../services/guardiansService";
 
 export function useInviteGuardian() { // Changed from useSendGuardianInvitation
   const queryClient = useQueryClient();

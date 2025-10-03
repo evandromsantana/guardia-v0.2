@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { IMessage } from "react-native-gifted-chat";
-import { getMessagesForChat } from "../src/services/chatService";
+import { getMessagesForChat } from "../services/chatService";
 
 export const useChatMessages = (chatId: string | undefined) => {
   const [messages, setMessages] = useState<IMessage[]>([]);
