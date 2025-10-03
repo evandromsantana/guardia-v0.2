@@ -8,16 +8,14 @@ import { Slot, SplashScreen, Stack, useRouter, useSegments } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useRef, useState } from "react";
 import "react-native-reanimated";
-
-import LockedScreen from "../components/app/auth/LockedScreen";
+import { LockedScreen } from "../components/app/auth";
 import { AuthProvider } from "../contexts/AuthContext";
-import { useColorScheme } from "../hooks/use-color-scheme";
-import { useAuth } from "../hooks/useAuth";
+import { useAuth, useColorScheme } from "../hooks";
 import {
   authenticateWithBiometrics,
   isBiometricsEnabled,
   promptToEnableBiometrics,
-} from "../services/biometricService";
+} from "../services";
 
 export const unstable_settings = {
   anchor: "(tabs)",

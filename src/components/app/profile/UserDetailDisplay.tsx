@@ -1,13 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { COLORS } from "../../../constants";
-import { UserProfile } from "../../../types/user";
+import { UserProfile } from "../../../types";
 
 interface UserDetailDisplayProps {
   userProfile: UserProfile;
 }
 
-const UserDetailDisplay: React.FC<UserDetailDisplayProps> = ({
+export const UserDetailDisplay: React.FC<UserDetailDisplayProps> = ({
   userProfile,
 }) => {
   return (
@@ -60,5 +60,3 @@ const styles = StyleSheet.create({
   },
   skill: { fontSize: 16, color: COLORS.grayDark, marginLeft: 10 },
 });
-
-export default UserDetailDisplay;

@@ -1,6 +1,5 @@
 import { StyleSheet, View, ViewProps } from "react-native";
 import { COLORS } from "../../constants";
-// import { theme } from '@/constants/theme'
 
 interface ContainerProps extends ViewProps {
   children: React.ReactNode;

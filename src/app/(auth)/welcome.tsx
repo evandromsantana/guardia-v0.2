@@ -1,9 +1,7 @@
-// src/app/(auth)/welcome.tsx
-
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import AuthHeader from "../../components/app/auth/AuthHeader";
-import WelcomeButtons from "../../components/app/auth/WelcomeButtons";
+
+import { AuthHeader, WelcomeButtons } from "../../components/app/auth";
 import { COLORS } from "../../constants";
 
 const WelcomeScreen = () => {

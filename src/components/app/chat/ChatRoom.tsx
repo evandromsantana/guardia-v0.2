@@ -7,7 +7,11 @@ interface ChatRoomProps {
   user: { _id: string };
 }
 
-const ChatRoom: React.FC<ChatRoomProps> = ({ messages, onSend, user }) => {
+export const ChatRoom: React.FC<ChatRoomProps> = ({
+  messages,
+  onSend,
+  user,
+}) => {
   return (
     <GiftedChat
       messages={messages}
@@ -16,5 +20,3 @@ const ChatRoom: React.FC<ChatRoomProps> = ({ messages, onSend, user }) => {
     />
   );
 };
-
-export default ChatRoom;

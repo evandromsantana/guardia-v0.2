@@ -1,8 +1,8 @@
 import { useMemo } from "react";
-import Supercluster from "supercluster";
 import { Region } from "react-native-maps";
-import { UserProfile } from "../types/user";
-import { ClusterItem, PointFeature } from "../components/app/map/MapComponent";
+import Supercluster from "supercluster";
+import { ClusterItem, PointFeature } from "../components/app/map";
+import { UserProfile } from "../types";
 
 interface UseMapClusteringResult {
   clusters: ClusterItem[];

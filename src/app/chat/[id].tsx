@@ -2,12 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { ActivityIndicator } from "react-native";
-import ChatRoom from "../../components/app/chat/ChatRoom";
+import { ChatRoom } from "../../components/app/chat";
 import { COLORS } from "../../constants";
+import { useChatMessages, useSendMessage } from "../../hooks";
 import { useAuth } from "../../hooks/useAuth";
-import { useChatMessages } from "../../hooks/useChatMessages";
-import { useSendMessage } from "../../hooks/useSendMessage";
-import { getUserProfile } from "../../services/userService";
+import { getUserProfile } from "../../services";
 import { UserProfile } from "../../types/user";
 
 export default function ChatRoomScreen() {

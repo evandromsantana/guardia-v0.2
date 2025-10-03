@@ -8,11 +8,10 @@ import {
   View,
 } from "react-native";
 import { COLORS } from "../../../constants";
-import { ChatWithId } from "../../../types/chat";
-import { UserProfile } from "../../../types/user";
+import { ChatWithId, UserProfile } from "../../../types";
 
 // Helper component for rendering a single chat item (copiado de chat.tsx)
-const ChatListItem = ({
+export const ChatListItem = ({
   chat,
   otherUser,
   onPress,
@@ -47,7 +46,7 @@ interface ChatListProps {
   emptyMessage: string;
 }
 
-const ChatList: React.FC<ChatListProps> = ({
+export const ChatList: React.FC<ChatListProps> = ({
   chats,
   userProfiles,
   currentUserId,
@@ -114,5 +113,3 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
 });
-
-export default ChatList;

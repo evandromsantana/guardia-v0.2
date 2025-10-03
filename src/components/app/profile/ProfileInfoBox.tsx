@@ -7,7 +7,10 @@ interface ProfileInfoBoxProps {
   content: string | React.ReactNode;
 }
 
-const ProfileInfoBox: React.FC<ProfileInfoBoxProps> = ({ title, content }) => {
+export const ProfileInfoBox: React.FC<ProfileInfoBoxProps> = ({
+  title,
+  content,
+}) => {
   return (
     <View style={styles.infoBox}>
       <Text style={styles.infoTitle}>{title}</Text>
@@ -31,5 +34,3 @@ const styles = StyleSheet.create({
   },
   infoContent: { fontSize: 16, color: COLORS.primary, marginTop: 5 },
 });
-
-export default ProfileInfoBox;

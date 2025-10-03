@@ -10,10 +10,13 @@ import {
   View,
 } from "react-native";
 import { uploadImage } from "../../../api/cloudinary";
-import ProfileImagePicker from "../../../components/app/profile/ProfileImagePicker";
-import ProfileInputField from "../../../components/app/profile/ProfileInputField";
-import ProfileSaveButton from "../../../components/app/profile/ProfileSaveButton";
-import SkillsToTeachEditor from "../../../components/app/profile/SkillsToTeachEditor";
+import {
+  ProfileImagePicker,
+  ProfileInputField,
+  ProfileSaveButton,
+  SkillsToTeachEditor,
+} from "../../../components/app/profile";
+
 import { COLORS } from "../../../constants";
 import { useAuth } from "../../../hooks/useAuth";
 import {

@@ -3,15 +3,15 @@ import {
   acceptGuardianRequest,
   getGuardians,
   getPendingGuardianRequests,
-  inviteGuardian, // Changed from sendGuardianInvitation
+  inviteGuardian,
   rejectGuardianRequest,
   removeGuardian,
-} from "../services/guardiansService";
+} from "../services";
 
-export function useInviteGuardian() { // Changed from useSendGuardianInvitation
+export function useInviteGuardian() { 
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: inviteGuardian, // Changed from sendGuardianInvitation
+    mutationFn: inviteGuardian, 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["pendingGuardianRequests"] });
     },

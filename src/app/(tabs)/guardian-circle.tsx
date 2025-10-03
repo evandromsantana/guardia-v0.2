@@ -9,19 +9,18 @@ import {
   View,
 } from "react-native";
 import { ZodError } from "zod";
-import { Button } from "../../components/common/Button";
-import { Input } from "../../components/common/Input";
+import { Button, Input } from "../../components/common";
+import { Container } from "../../components/layout/Container";
+import { COLORS } from "../../constants";
 import {
   useAcceptGuardianRequest,
+  useAuth,
   useGuardians,
   useInviteGuardian,
   usePendingGuardianRequests,
   useRejectGuardianRequest,
   useRemoveGuardian,
-} from "../../components/hooks/guardian";
-import { Container } from "../../components/layout/Container";
-import { COLORS } from "../../constants";
-import { useAuth } from "../../hooks/useAuth";
+} from "../../hooks";
 
 interface GuardianItem {
   guardianUid: string;

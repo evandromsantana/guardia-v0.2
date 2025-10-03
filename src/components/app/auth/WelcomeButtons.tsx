@@ -4,7 +4,7 @@ import { ActivityIndicator, Alert, StyleSheet, View } from "react-native";
 import { COLORS } from "../../../constants";
 import { useAuth } from "../../../hooks/useAuth";
 
-const WelcomeButtons: React.FC = () => {
+export const WelcomeButtons: React.FC = () => {
   const { signInWithGoogle, isSigningInWithGoogle } = useAuth();
 
   const handleGoogleSignIn = async () => {
@@ -46,5 +46,3 @@ const styles = StyleSheet.create({
     height: 50,
   },
 });
-
-export default WelcomeButtons;

@@ -2,10 +2,8 @@ import { Ionicons } from "@expo/vector-icons"; // 👥 Ícones
 import React, { useCallback, useEffect, useRef } from "react";
 import { Animated, Image, StyleSheet, Text, View } from "react-native";
 import MapView, { Marker, PROVIDER_GOOGLE, Region } from "react-native-maps";
-
-import { COLORS } from "../../../constants";
-import { retroMapStyle } from "../../../constants/MapStyles";
-import { UserProfile } from "../../../types/user";
+import { COLORS, retroMapStyle } from "../../../constants";
+import { UserProfile } from "../../../types";
 
 // --- TYPE DEFINITIONS ---
 export interface PointFeature {
@@ -38,7 +36,7 @@ interface MapComponentProps {
   onMapPress: () => void;
 }
 
-const MapComponent: React.FC<MapComponentProps> = ({
+export const MapComponent: React.FC<MapComponentProps> = ({
   region,
   setRegion,
   clusters,
@@ -214,5 +212,3 @@ const styles = StyleSheet.create({
     marginTop: -2,
   },
 });
-
-export default MapComponent;

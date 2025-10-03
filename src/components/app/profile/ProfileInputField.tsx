@@ -12,7 +12,7 @@ interface ProfileInputFieldProps {
   placeholder?: string;
 }
 
-const ProfileInputField: React.FC<ProfileInputFieldProps> = ({
+export const ProfileInputField: React.FC<ProfileInputFieldProps> = ({
   label,
   value,
   onChangeText,
@@ -58,5 +58,3 @@ const styles = StyleSheet.create({
     textAlignVertical: "top",
   },
 });
-
-export default ProfileInputField;

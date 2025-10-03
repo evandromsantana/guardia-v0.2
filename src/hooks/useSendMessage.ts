@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { IMessage } from "react-native-gifted-chat";
 import { sendMessage } from "../services/chatService";
-import { UserProfile } from "../types/user";
+import { UserProfile } from "../types";
 
 interface UseSendMessageProps {
   chatId: string | undefined;

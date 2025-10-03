@@ -1,3 +1,4 @@
+// types/supercluster.d.ts
 declare module "supercluster" {
   export interface PointFeature {
     type: "Feature";
@@ -33,7 +34,10 @@ declare module "supercluster" {
   export default class SuperCluster {
     constructor(options?: Options);
     load(points: PointFeature[]): this;
-    getClusters(bbox: [number, number, number, number], zoom: number): (PointFeature | ClusterFeature)[];
+    getClusters(
+      bbox: [number, number, number, number],
+      zoom: number
+    ): (PointFeature | ClusterFeature)[];
     getClusterExpansionZoom(clusterId: number): number;
   }
 }

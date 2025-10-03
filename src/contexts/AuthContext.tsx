@@ -1,10 +1,7 @@
 import { User as FirebaseUser, onAuthStateChanged } from "firebase/auth";
 import React, { createContext, ReactNode, useEffect, useState } from "react";
-import {
-  useLogout,
-  useSignInWithGoogle,
-} from "../services/authService";
 import { auth } from "../api/firebase";
+import { useLogout, useSignInWithGoogle } from "../services";
 
 type User = FirebaseUser;
 
@@ -58,4 +55,3 @@ export function AuthProvider({ children }: AuthProviderProps) {
     </AuthContext.Provider>
   );
 }
-

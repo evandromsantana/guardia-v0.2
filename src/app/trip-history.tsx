@@ -12,7 +12,7 @@ import { TripListItem } from "../components/app/trip/TripListItem";
 import { COLORS } from "../constants";
 import { useAuth } from "../hooks/useAuth";
 import { getTripHistory } from "../services/tripService";
-import { Trip } from "../types/trip"; // Import Trip type
+import { Trip } from "../types/trip";
 
 export default function TripHistoryScreen() {
   const { user } = useAuth();

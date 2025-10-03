@@ -7,7 +7,7 @@ interface ProfileImagePickerProps {
   onPickImage: () => void;
 }
 
-const ProfileImagePicker: React.FC<ProfileImagePickerProps> = ({
+export const ProfileImagePicker: React.FC<ProfileImagePickerProps> = ({
   imageUri,
   onPickImage,
 }) => {
@@ -43,5 +43,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-export default ProfileImagePicker;

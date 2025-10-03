@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { ExternalLink } from "../external-link";
 import { MonoText } from "./StyledText";
 
-export default function EditScreenInfo({ path }: { path: string }) {
+export function EditScreenInfo({ path }: { path: string }) {
   return (
     <View>
       <View style={styles.getStartedContainer}>

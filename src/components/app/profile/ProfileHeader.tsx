@@ -1,28 +1,52 @@
+import { COLORS } from "@/constants";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import { SymbolView } from "expo-symbols";
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
-import { COLORS } from "../../../constants";
+import { Image, Platform, StyleSheet, Text, View } from "react-native";
 
 interface ProfileHeaderProps {
-  photoUrl: string | undefined;
-  displayName: string | undefined;
-  email: string | null | undefined;
+  photoUrl?: string;
+  displayName?: string;
+  email?: string | null;
 }
 
-const ProfileHeader: React.FC<ProfileHeaderProps> = ({
+export const ProfileHeader: React.FC<ProfileHeaderProps> = ({
   photoUrl,
   displayName,
   email,
 }) => {
-  return (
-    <View style={styles.profileavatar}>
-      <Image
-        source={
-          photoUrl ? { uri: photoUrl } : require("@/assets/default-avatar.png") // Fallback image
-        }
+  const renderAvatar = () => {
+    if (photoUrl) {
+      return <Image source={{ uri: photoUrl }} style={styles.avatar} />;
+    }
+
+    // fallback nativo
+    if (Platform.OS === "ios") {
+      return (
+        <SymbolView
+          name="person.fill"
+          size={120}
+          colors={[COLORS.grayDark]}
+          style={styles.avatar}
+        />
+      );
+    }
+
+    return (
+      <MaterialIcons
+        name="person"
+        size={120}
+        color={COLORS.grayDark}
         style={styles.avatar}
       />
+    );
+  };
+
+  return (
+    <View style={styles.profileavatar}>
+      {renderAvatar()}
       <Text style={styles.name}>{displayName || "Usuário"}</Text>
-      <Text style={styles.email}>{email}</Text>
+      {email ? <Text style={styles.email}>{email}</Text> : null}
     </View>
   );
 };
@@ -51,7 +75,6 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     marginBottom: 10,
     backgroundColor: COLORS.grayLight,
+    overflow: "hidden",
   },
 });
-
-export default ProfileHeader;

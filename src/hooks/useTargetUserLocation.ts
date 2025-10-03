@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Region } from "react-native-maps";
-import { UserProfile } from "../types/user";
+import { UserProfile } from "../types";
 
 export const useTargetUserLocation = (
   targetUser: UserProfile | null | undefined,

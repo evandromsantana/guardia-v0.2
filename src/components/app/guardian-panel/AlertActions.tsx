@@ -9,10 +9,9 @@ import {
   View,
 } from "react-native";
 import { COLORS, SPACING } from "../../../constants";
-import { getUserProfile } from "../../../services/userService";
-import { Alert } from "../../../types/alert";
-import { UserProfile } from "../../../types/user";
-import { Button } from "../../common/Button";
+import { getUserProfile } from "../../../services";
+import { Alert, UserProfile } from "../../../types";
+import { Button } from "../../common";
 
 interface AlertActionsProps {
   alert: Alert;

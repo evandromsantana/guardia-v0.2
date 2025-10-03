@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import ProfileInfoBox from "./ProfileInfoBox";
+import { ProfileInfoBox } from "./";
 
 interface NavigableInfoBoxProps {
   title: string;

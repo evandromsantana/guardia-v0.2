@@ -2,17 +2,17 @@ import {
   addDoc,
   collection,
   doc,
+  getDocs,
+  orderBy,
+  query,
+  QueryDocumentSnapshot,
   serverTimestamp,
   updateDoc,
-  query,
   where,
-  orderBy,
-  getDocs,
-  QueryDocumentSnapshot,
 } from "firebase/firestore";
 import { z } from "zod";
 import { db } from "../api/firebase";
-import { Trip } from "../types/trip"; // Import Trip type
+import { Trip } from "../types";
 
 const startTripSchema = z.object({
   userId: z.string(),

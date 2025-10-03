@@ -21,7 +21,7 @@ interface ClusterBottomSheetProps {
   onSelectUser: (user: UserProfile) => void;
 }
 
-const ClusterBottomSheet: React.FC<ClusterBottomSheetProps> = ({
+export const ClusterBottomSheet: React.FC<ClusterBottomSheetProps> = ({
   selectedCluster,
   clusterUsers,
   onClose,
@@ -174,5 +174,3 @@ const styles = StyleSheet.create({
     fontSize: 15,
   },
 });
-
-export default ClusterBottomSheet;

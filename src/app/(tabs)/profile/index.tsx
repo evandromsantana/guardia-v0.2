@@ -9,11 +9,13 @@ import {
   View,
 } from "react-native";
 
-import { NavigableInfoBox } from "../../../components/app/profile/NavigableInfoBox";
+import {
+  NavigableInfoBox,
+  ProfileActions,
+  ProfileHeader,
+  ProfileInfoBox,
+} from "../../../components/app/profile";
 
-import ProfileActions from "../../../components/app/profile/ProfileActions";
-import ProfileHeader from "../../../components/app/profile/ProfileHeader";
-import ProfileInfoBox from "../../../components/app/profile/ProfileInfoBox";
 import { COLORS } from "../../../constants";
 import { useAuth } from "../../../hooks/useAuth";
 import { getUserProfile } from "../../../services/userService";

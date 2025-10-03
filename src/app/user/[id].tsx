@@ -1,11 +1,11 @@
-import { COLORS } from "@/src/constants";
-import { UserProfile } from "@/src/types/user";
 import { useQuery } from "@tanstack/react-query";
 import { useLocalSearchParams } from "expo-router";
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import UserDetailDisplay from "../../components/app/profile/UserDetailDisplay";
+import { UserDetailDisplay } from "../../components/app/profile";
+import { COLORS } from "../../constants";
 import { getUserProfile } from "../../services/userService";
+import { UserProfile } from "../../types/user";
 
 export default function UserDetailScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();

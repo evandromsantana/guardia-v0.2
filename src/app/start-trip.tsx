@@ -1,13 +1,15 @@
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { ActivityIndicator, Alert, StyleSheet, Text } from "react-native";
-import { GuardianSelectionList } from "../components/app/trip/GuardianSelectionList";
-import { Button } from "../components/common/Button";
-import { Input } from "../components/common/Input";
+
+import { GuardianSelectionList } from "../components/app/trip";
+import { Button, Input } from "../components/common";
+
 import { useGuardians } from "../components/hooks/guardian";
+import { useAuth } from "../hooks/useAuth";
+
 import { Container } from "../components/layout/Container";
 import { COLORS } from "../constants";
-import { useAuth } from "../hooks/useAuth";
 import { startSafeTrip } from "../services/tripService";
 
 export default function StartTripScreen() {

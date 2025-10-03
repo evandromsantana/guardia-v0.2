@@ -2,8 +2,7 @@ import * as Location from "expo-location";
 import { User } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Region } from "react-native-maps";
-
-import { updateUserLocation } from "../services/userService";
+import { updateUserLocation } from "../services";
 
 interface UseUserLocationResult {
   locationLoading: boolean;

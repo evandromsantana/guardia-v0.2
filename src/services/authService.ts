@@ -1,38 +1,57 @@
-
+// src/services/authService.ts
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, UseMutationResult } from "@tanstack/react-query";
 import {
   getAdditionalUserInfo,
   GoogleAuthProvider,
   signInWithCredential,
   signOut,
+  UserCredential,
 } from "firebase/auth";
 
 import { auth } from "../api/firebase";
-import * as biometricService from "./biometricService";
-import * as userService from "./userService";
+import { disableBiometrics } from "./biometricService";
+import { createUserProfile } from "./userService";
 
+// ---------------------------------------------
 // Configure Google Sign-In
+// ---------------------------------------------
 GoogleSignin.configure({
-  webClientId: "285764900701-0ms0urjjbt46nupka8ba1jj0n13skjto.apps.googleusercontent.com",
+  webClientId:
+    "285764900701-0ms0urjjbt46nupka8ba1jj0n13skjto.apps.googleusercontent.com",
 });
 
+// ---------------------------------------------
 // API Functions
-async function signInWithGoogle() {
-  // Get the users ID token
-  const { idToken } = await GoogleSignin.signIn();
+// ---------------------------------------------
+/**
+ * Realiza login com Google e cria perfil de usuário se for novo.
+ */
+export async function signInWithGoogle(): Promise<UserCredential> {
+  // Verifica se o dispositivo suporta Play Services
+  await GoogleSignin.hasPlayServices();
 
-  // Create a Google credential with the token
+  // Faz login no Google
+  await GoogleSignin.signIn();
+
+  // Pega os tokens do Google
+  const { idToken } = await GoogleSignin.getTokens();
+
+  if (!idToken) {
+    throw new Error("Não foi possível obter o ID token do Google");
+  }
+
+  // Cria credencial do Google
   const googleCredential = GoogleAuthProvider.credential(idToken);
 
-  // Sign-in the user with the credential
+  // Faz login no Firebase
   const userCredential = await signInWithCredential(auth, googleCredential);
 
-  // Check if it's a new user and create a profile
+  // Verifica se é um novo usuário
   const additionalUserInfo = getAdditionalUserInfo(userCredential);
   if (additionalUserInfo?.isNewUser) {
     const { user } = userCredential;
-    await userService.createUserProfile(
+    await createUserProfile(
       user,
       user.displayName || "Usuário",
       user.phoneNumber || "",
@@ -43,26 +62,42 @@ async function signInWithGoogle() {
   return userCredential;
 }
 
-async function logout() {
-  // Sign out from Google and Firebase
+/**
+ * Realiza logout do Google, Firebase e desabilita biometria.
+ */
+export async function logout(): Promise<void> {
   try {
     await GoogleSignin.signOut();
-    await biometricService.disableBiometrics();
+    await disableBiometrics();
   } catch (error) {
     console.error("Google Sign Out Error:", error);
   }
-  return signOut(auth);
+
+  await signOut(auth);
 }
 
+// ---------------------------------------------
 // React Query Hooks
-export function useSignInWithGoogle() {
-  return useMutation({
+// ---------------------------------------------
+
+/**
+ * Hook React Query para login com Google
+ */
+export function useSignInWithGoogle(): UseMutationResult<
+  UserCredential,
+  Error,
+  void
+> {
+  return useMutation<UserCredential, Error, void>({
     mutationFn: signInWithGoogle,
   });
 }
 
-export function useLogout() {
-  return useMutation({
+/**
+ * Hook React Query para logout
+ */
+export function useLogout(): UseMutationResult<void, Error, void> {
+  return useMutation<void, Error, void>({
     mutationFn: logout,
   });
 }

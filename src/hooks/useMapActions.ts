@@ -1,10 +1,7 @@
 import * as Location from "expo-location";
 import { useRouter } from "expo-router";
 import { Alert } from "react-native";
-
-import { triggerPanicAlert } from "../services/alertService";
-import { createChatRoom } from "../services/chatService";
-import { endSafeTrip } from "../services/tripService";
+import { createChatRoom, endSafeTrip, triggerPanicAlert } from "../services";
 import { UserProfile } from "../types/user";
 
 interface UseMapActionsProps {

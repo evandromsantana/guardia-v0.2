@@ -1,4 +1,3 @@
-import { db } from "../api/firebase"
 import {
   collection,
   deleteDoc,
@@ -9,8 +8,9 @@ import {
   setDoc,
   updateDoc,
   where,
-} from "firebase/firestore"
-import { z } from "zod"
+} from "firebase/firestore";
+import { z } from "zod";
+import { db } from "../api/firebase";
 
 // Zod Schemas
 const guardianInvitationSchema = z.object({

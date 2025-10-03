@@ -3,10 +3,10 @@ import {
   acceptGuardianRequest,
   getGuardians,
   getPendingGuardianRequests,
-  inviteGuardian, // Changed from sendGuardianInvitation
+  inviteGuardian,
   rejectGuardianRequest,
   removeGuardian,
-} from "../../services/guardiansService";
+} from "../../services";
 
 export function useInviteGuardian() { // Changed from useSendGuardianInvitation
   const queryClient = useQueryClient();

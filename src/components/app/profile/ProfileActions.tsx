@@ -7,7 +7,7 @@ interface ProfileActionsProps {
   onLogout: () => void;
 }
 
-const ProfileActions: React.FC<ProfileActionsProps> = ({ onLogout }) => {
+export const ProfileActions: React.FC<ProfileActionsProps> = ({ onLogout }) => {
   return (
     <>
       <Link href="/profile/edit-profile" asChild>
@@ -38,5 +38,3 @@ const styles = StyleSheet.create({
   buttonText: { color: COLORS.white, fontWeight: "bold" as any, fontSize: 16 },
   logoutButton: { backgroundColor: COLORS.accent },
 });
-
-export default ProfileActions;

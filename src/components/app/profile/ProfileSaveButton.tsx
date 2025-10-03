@@ -7,7 +7,7 @@ interface ProfileSaveButtonProps {
   onPress: () => void;
 }
 
-const ProfileSaveButton: React.FC<ProfileSaveButtonProps> = ({
+export const ProfileSaveButton: React.FC<ProfileSaveButtonProps> = ({
   isSubmitting,
   onPress,
 }) => {
@@ -40,5 +40,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-export default ProfileSaveButton;

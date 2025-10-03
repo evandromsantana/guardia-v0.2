@@ -7,7 +7,7 @@ interface AuthHeaderProps {
   subtitle: string;
 }
 
-const AuthHeader: React.FC<AuthHeaderProps> = ({ title, subtitle }) => {
+export const AuthHeader: React.FC<AuthHeaderProps> = ({ title, subtitle }) => {
   return (
     <View style={styles.logoContainer}>
       <LogoGuard />
@@ -35,5 +35,3 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
 });
-
-export default AuthHeader;

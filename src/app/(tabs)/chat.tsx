@@ -2,13 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
 import React, { useMemo } from "react";
 import { StyleSheet, View } from "react-native";
-import ChatList from "../../components/app/chat/ChatList";
-import LoadingIndicator from "../../components/ui/LoadingIndicator";
+import { fetchUserProfiles, getChatsForUser } from "../../services";
+
+import { ChatList } from "../../components/app/chat";
+
+import { LoadingIndicator } from "../../components/ui";
 import { COLORS } from "../../constants";
-import { useAuth } from "../../hooks/useAuth";
-import { getChatsForUser } from "../../services/chatService";
-import { fetchUserProfiles } from "../../services/userService";
-import { ChatWithId } from "../../types/chat";
+import { useAuth } from "../../hooks";
+import { ChatWithId } from "../../types";
 
 export default function ChatScreen() {
   const { user } = useAuth();

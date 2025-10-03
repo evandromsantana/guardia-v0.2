@@ -7,7 +7,7 @@ interface LockedScreenProps {
   onUnlock: () => void;
 }
 
-const LockedScreen: React.FC<LockedScreenProps> = ({ onUnlock }) => {
+export const LockedScreen: React.FC<LockedScreenProps> = ({ onUnlock }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Guardiã</Text>
@@ -49,5 +49,3 @@ const styles = StyleSheet.create({
     color: COLORS.primary,
   },
 });
-
-export default LockedScreen;

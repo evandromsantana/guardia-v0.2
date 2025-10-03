@@ -3,18 +3,21 @@ import { useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Region } from "react-native-maps";
-
-import MapComponent from "../../components/app/map/MapComponent";
-import MapLoadingState from "../../components/app/map/MapLoadingState";
-import { PanicButton } from "../../components/app/map/PanicButton";
-import UserInfoCard from "../../components/app/map/UserInfoCard";
-import { Button } from "../../components/common/Button";
-import EmptyState from "../../components/ui/EmptyState";
+import {
+  MapComponent,
+  MapLoadingState,
+  PanicButton,
+  UserInfoCard,
+} from "../../components/app/map";
+import { Button } from "../../components/common";
+import { EmptyState } from "../../components/ui";
 import { COLORS } from "../../constants";
-import { useAuth } from "../../hooks/useAuth";
-import { useMapActions } from "../../hooks/useMapActions";
-import { useTargetUserLocation } from "../../hooks/useTargetUserLocation";
-import { useTripLocationTracking } from "../../hooks/useTripLocationTracking";
+import {
+  useAuth,
+  useMapActions,
+  useTargetUserLocation,
+  useTripLocationTracking,
+} from "../../hooks";
 import { getUserProfile } from "../../services/userService";
 import { UserProfile } from "../../types/user";
 

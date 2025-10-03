@@ -2,7 +2,7 @@ import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { COLORS } from "../../../constants";
 
-const MapLoadingState: React.FC = () => {
+export const MapLoadingState: React.FC = () => {
   return (
     <View style={styles.centered}>
       <ActivityIndicator size="large" color={COLORS.primary} />
@@ -19,5 +19,3 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
 });
-
-export default MapLoadingState;

@@ -2,7 +2,7 @@ import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { COLORS } from "../../constants";
 
-const LoadingIndicator: React.FC = () => {
+export const LoadingIndicator: React.FC = () => {
   return (
     <View style={styles.centered}>
       <ActivityIndicator size="large" color={COLORS.primary} />

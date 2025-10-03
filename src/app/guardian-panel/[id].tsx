@@ -5,12 +5,11 @@ import { doc, getDoc } from "firebase/firestore";
 import React from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import MapView, { Marker, Region } from "react-native-maps";
-import { db } from "../../api/firebase";
-import { AlertInfo } from "../../components/app/guardian-panel/AlertInfo";
-import { COLORS } from "../../constants";
 
-import { AlertActions } from "../../components/app/guardian-panel/AlertActions";
-import { Alert } from "../../types/alert";
+import { db } from "../../api/firebase";
+import { AlertActions, AlertInfo } from "../../components/app/guardian-panel";
+import { COLORS } from "../../constants";
+import { Alert } from "../../types";
 
 async function getAlert(alertId: string): Promise<Alert | null> {
   const alertRef = doc(db, "alerts", alertId);

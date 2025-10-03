@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { COLORS } from "../../../constants";
-import { UserProfile } from "../../../types/user";
+import { UserProfile } from "../../../types";
 
 interface UserInfoCardProps {
   user: UserProfile;
@@ -10,7 +10,11 @@ interface UserInfoCardProps {
   onStartChat: (userId: string) => void;
 }
 
-const UserInfoCard = ({ user, onClose, onStartChat }: UserInfoCardProps) => {
+export const UserInfoCard = ({
+  user,
+  onClose,
+  onStartChat,
+}: UserInfoCardProps) => {
   return (
     <View style={styles.overlay}>
       <View style={styles.cardContainer}>
@@ -102,5 +106,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export default UserInfoCard;

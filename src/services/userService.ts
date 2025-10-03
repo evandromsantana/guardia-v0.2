@@ -11,29 +11,29 @@ import {
     where,
 } from "firebase/firestore";
 import { geohashForLocation } from "geofire-common";
-import { UserProfile, UserProfileSchema } from "../types/user";
-import { db } from "../api/firebase"; // A única fonte para a instância 'db'
+import { db } from "../api/firebase";
+import { UserProfile, UserProfileSchema } from "../types";
 
-// A linha 'const db = getFirestore();' foi removida para evitar duplicados.
+
 
 export const createUserProfile = async (user: FirebaseUser, displayName: string, phoneNumber?: string, photoURL?: string | null) => {
     const userRef = doc(db, "users", user.uid);
 
-    // Check if a document already exists to prevent overwriting
+   
     const docSnap = await getDoc(userRef);
     if (docSnap.exists()) {
         console.log("User profile already exists for UID:", user.uid);
-        return; // Exit if profile exists
+        return; 
     }
 
     const newUserProfile: Omit<UserProfile, "memberSince"> = {
         uid: user.uid,
         email: user.email!,
         displayName: displayName,
-        phoneNumber: phoneNumber || "", // Default to empty string
-        photoUrl: photoURL || user.photoURL || null, // Use passed photoURL, then firebase user photoURL
+        phoneNumber: phoneNumber || "", 
+        photoUrl: photoURL || user.photoURL || null, 
         bio: "",
-        timeBalance: 60, // Padrão de 1 hora (60 minutos)
+        timeBalance: 60, 
         skillsToTeach: [],
         skillsToLearn: [],
         location: null,

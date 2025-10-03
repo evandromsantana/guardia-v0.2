@@ -24,7 +24,7 @@ interface SkillsToTeachEditorProps {
   ) => void;
 }
 
-const SkillsToTeachEditor: React.FC<SkillsToTeachEditorProps> = ({
+export const SkillsToTeachEditor: React.FC<SkillsToTeachEditorProps> = ({
   skillsToTeach,
   onAddSkill,
   onRemoveSkill,
@@ -113,5 +113,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-export default SkillsToTeachEditor;
